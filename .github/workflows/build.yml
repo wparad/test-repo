@@ -23,4 +23,4 @@ jobs:
     
     - uses: rhosys/github-action-rebuild-pull-requests@v0.1.8
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: "SECRET"
