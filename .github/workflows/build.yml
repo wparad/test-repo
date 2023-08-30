@@ -1,5 +1,4 @@
 on:
-  workflow_dispatch:
   push:
     branches:
     - main
@@ -8,6 +7,10 @@ on:
     branches:
     - main
     - 'release/**'
+
+permissions:
+  contents: read
+  actions: write
 
 jobs:
   nodejs:
@@ -21,6 +24,6 @@ jobs:
         node-version: 16
         registry-url: 'https://registry.npmjs.org'
     
-    - uses: rhosys/github-action-rebuild-pull-requests@v0.1.23
+    - uses: rhosys/github-action-rebuild-pull-requests@v1.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
